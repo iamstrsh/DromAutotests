@@ -22,6 +22,7 @@ namespace DromAutotest
 
 class DromTests
     {
+        //Создаём объект драйвера
         private IWebDriver driver;
 
         
