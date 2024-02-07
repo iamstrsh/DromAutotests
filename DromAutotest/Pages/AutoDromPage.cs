@@ -23,6 +23,10 @@ namespace DromAutotest.Pages
         private readonly By _fuelHybrid = By.XPath("//div[text()='Гибрид' and @role='option']");
         private readonly By _unsoldCheckboxFilter = By.XPath("//label[@for='sales__filter_unsold']");
         private readonly By _advancedFilterButton = By.XPath("//button[@data-ftid='sales__filter_advanced-button']");
+        private readonly By _mileageFromFilter = By.XPath("//input[@data-ftid='sales__filter_mileage-from']");
+        private readonly By _yearFromFilter = By.XPath("//div[@data-ftid='sales__filter_year-from']");
+        private readonly By _yearFrom2007Filter = By.XPath("//div[@data-ftid='sales__filter_year-from']/div[@data-ftid='component_select_dropdown']/div[text()='2007']");
+
 
         public AutoDromPage(IWebDriver webDriver)
         {
@@ -66,6 +70,20 @@ namespace DromAutotest.Pages
         public void OpenAdvancedFilters()
         {
             driver.FindElement(_advancedFilterButton).Click();
+        }
+
+        //Выставляет фильтр Пробег от,км
+        public void ApplyMileageFromFilter()
+        {
+            driver.FindElement(_mileageFromFilter).SendKeys("1");
+        }
+
+        //Выставляет фильтр Год от 2007
+        public void ApplyYearFromFilter()
+        {
+            driver.FindElement(_yearFromFilter).Click();
+            driver.FindElement(_yearFromFilter).SendKeys("2007");
+            driver.FindElement(_yearFrom2007Filter).Click();
         }
     }
 }

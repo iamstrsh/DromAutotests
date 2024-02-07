@@ -54,6 +54,12 @@ class DromTests
 
             //Раскрывает фильтры расширенного поиска
             autoDromPage.OpenAdvancedFilters();
+
+            //Фильтр Пробег от,км.
+            autoDromPage.ApplyMileageFromFilter();
+
+            //Фильтр Год от
+            autoDromPage.ApplyYearFromFilter();
         }
     }
 }
